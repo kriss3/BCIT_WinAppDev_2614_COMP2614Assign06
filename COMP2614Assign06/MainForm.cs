@@ -16,5 +16,15 @@ namespace COMP2614Assign06
 		{
 			InitializeComponent();
 		}
+
+		private void MainForm_Load(object sender, EventArgs e)
+		{
+			
+		}
+
+		private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+		{
+			Helper.GetData();
+		}
 	}
 }
