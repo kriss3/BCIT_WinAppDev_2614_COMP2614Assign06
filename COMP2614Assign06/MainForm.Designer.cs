@@ -1,6 +1,6 @@
 ﻿namespace COMP2614Assign06
 {
-	partial class Form1
+	partial class MainForm
 	{
 		/// <summary>
 		/// Required designer variable.
