@@ -50,6 +50,7 @@
     <Compile Include="Client.cs" />
     <Compile Include="ClientCollection.cs" />
     <Compile Include="ClientRepository.cs" />
+    <Compile Include="ClientViewModel.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>

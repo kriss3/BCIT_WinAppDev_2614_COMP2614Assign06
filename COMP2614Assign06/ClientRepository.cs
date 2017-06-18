@@ -17,7 +17,7 @@ namespace COMP2614Assign06
 			using (SqlConnection sqlConn = new SqlConnection(Helper.GetConnectionString()))
 			{
 				var query = @"Select ClientCode, CompanyName, Address1, City, Province,
-							  PostalCode, YTDSale, CreditHold, Notes from dbo.Client";
+							  PostalCode, YTDSales, CreditHold, Notes from dbo.Client";
 
 				using (SqlCommand cmd = new SqlCommand())
 				{
@@ -43,7 +43,7 @@ namespace COMP2614Assign06
 							City = dr["City"] as string;
 							Province = dr["Province"] as string;
 							PostalCode = dr["PostalCode"] as string;
-							YTDSale = (decimal)dr["YTDSale"];
+							YTDSale = (decimal)dr["YTDSales"];
 							CreditHold = (bool)dr["CreditHold"];
 							Notes = dr["Notes"] as string;
 

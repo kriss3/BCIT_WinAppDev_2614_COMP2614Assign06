@@ -31,8 +31,7 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.statusStripProgress = new System.Windows.Forms.StatusStrip();
 			this.toolStripStatusLabelInfo = new System.Windows.Forms.ToolStripStatusLabel();
-			this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.dataGridViewClients = new System.Windows.Forms.DataGridView();
 			this.labelClientCode = new System.Windows.Forms.Label();
 			this.textBoxClientCode = new System.Windows.Forms.TextBox();
 			this.textBoxCity = new System.Windows.Forms.TextBox();
@@ -52,7 +51,7 @@
 			this.checkBoxCreditHold = new System.Windows.Forms.CheckBox();
 			this.buttonSave = new System.Windows.Forms.Button();
 			this.statusStripProgress.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridViewClients)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// statusStripProgress
@@ -73,19 +72,16 @@
 			this.toolStripStatusLabelInfo.Text = "Loading ...";
 			this.toolStripStatusLabelInfo.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
 			// 
-			// backgroundWorker
+			// dataGridViewClients
 			// 
-			this.backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
-			// 
-			// dataGridView1
-			// 
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Location = new System.Drawing.Point(11, 265);
-			this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.RowTemplate.Height = 28;
-			this.dataGridView1.Size = new System.Drawing.Size(834, 302);
-			this.dataGridView1.TabIndex = 1;
+			this.dataGridViewClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridViewClients.Location = new System.Drawing.Point(11, 265);
+			this.dataGridViewClients.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.dataGridViewClients.Name = "dataGridViewClients";
+			this.dataGridViewClients.RowTemplate.Height = 28;
+			this.dataGridViewClients.Size = new System.Drawing.Size(834, 302);
+			this.dataGridViewClients.TabIndex = 1;
+			this.dataGridViewClients.SelectionChanged += new System.EventHandler(this.dataGridViewClients_SelectionChanged);
 			// 
 			// labelClientCode
 			// 
@@ -269,7 +265,7 @@
 			this.Controls.Add(this.labelCity);
 			this.Controls.Add(this.textBoxClientCode);
 			this.Controls.Add(this.labelClientCode);
-			this.Controls.Add(this.dataGridView1);
+			this.Controls.Add(this.dataGridViewClients);
 			this.Controls.Add(this.statusStripProgress);
 			this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -282,7 +278,7 @@
 			this.Load += new System.EventHandler(this.MainForm_Load);
 			this.statusStripProgress.ResumeLayout(false);
 			this.statusStripProgress.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridViewClients)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -292,8 +288,7 @@
 
 		private System.Windows.Forms.StatusStrip statusStripProgress;
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelInfo;
-		private System.ComponentModel.BackgroundWorker backgroundWorker;
-		private System.Windows.Forms.DataGridView dataGridView1;
+		private System.Windows.Forms.DataGridView dataGridViewClients;
 		private System.Windows.Forms.Label labelClientCode;
 		private System.Windows.Forms.TextBox textBoxClientCode;
 		private System.Windows.Forms.TextBox textBoxCity;

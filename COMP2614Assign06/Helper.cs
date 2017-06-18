@@ -14,9 +14,9 @@ namespace COMP2614Assign06
 			return ConfigurationManager.AppSettings["connString"];
 		}
 
-		public static void GetData()
+		public static ClientCollection GetData()
 		{
-			ClientRepository.GetClients();
+			return ClientRepository.GetClients();
 		}
 	}
 }

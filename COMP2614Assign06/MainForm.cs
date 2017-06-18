@@ -12,6 +12,8 @@ namespace COMP2614Assign06
 {
 	public partial class MainForm : Form
 	{
+
+		private ClientViewModel clientVM;
 		public MainForm()
 		{
 			InitializeComponent();
@@ -19,12 +21,45 @@ namespace COMP2614Assign06
 
 		private void MainForm_Load(object sender, EventArgs e)
 		{
+			BackgroundWorker bgw = new BackgroundWorker();
+			bgw.DoWork += bgw_DoWork;
+			bgw.RunWorkerCompleted += bgw_RunWorkerCompleted;
+			bgw.RunWorkerAsync();
+			
+		}
+		private void bgw_DoWork(object sender, DoWorkEventArgs e)
+		{
+			e.Result = Helper.GetData();
+		}
+		private void bgw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+		{
+			var res = e.Result as ClientCollection;
+			clientVM = new ClientViewModel(res);
+			setupBindings();
+			setupGridView(res);
+		}
+
+		private void setupGridView(ClientCollection clients)
+		{
 			
 		}
 
-		private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+		private void setupBindings()
 		{
-			Helper.GetData();
+			textBoxClientCode.DataBindings.Add("Text", clientVM, "ClientCode", false, DataSourceUpdateMode.OnValidation, "");
+			textBoxCompanyName.DataBindings.Add("Text", clientVM, "CompanyName", false, DataSourceUpdateMode.OnValidation, "");
+
+
+			dataGridViewClients.AutoGenerateColumns = true;
+			dataGridViewClients.DataSource = clientVM.Clients;
+		}
+
+		private void dataGridViewClients_SelectionChanged(object sender, EventArgs e)
+		{
+			int index = dataGridViewClients.CurrentRow.Index;
+
+			Client client = clientVM.Clients[index];
+			clientVM.SetDisplayProduct(client);
 		}
 	}
 }
