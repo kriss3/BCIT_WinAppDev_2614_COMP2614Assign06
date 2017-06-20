@@ -41,13 +41,20 @@ namespace COMP2614Assign06
 
 		private void setupGridView(ClientCollection clients)
 		{
-			
+			//setup your grid in case u disable AutoGenerateColumns !!!
 		}
 
 		private void setupBindings()
 		{
 			textBoxClientCode.DataBindings.Add("Text", clientVM, "ClientCode", false, DataSourceUpdateMode.OnValidation, "");
 			textBoxCompanyName.DataBindings.Add("Text", clientVM, "CompanyName", false, DataSourceUpdateMode.OnValidation, "");
+			textBoxAddress1.DataBindings.Add("Text", clientVM, "Address1", false, DataSourceUpdateMode.OnValidation, "");
+			textBoxCity.DataBindings.Add("Text", clientVM, "City", false, DataSourceUpdateMode.OnValidation, "");
+			textBoxProvince.DataBindings.Add("Text", clientVM, "Province", false, DataSourceUpdateMode.OnValidation, "");
+			textBoxPostalCode.DataBindings.Add("Text", clientVM, "PostalCode", false, DataSourceUpdateMode.OnValidation, "");
+			textBoxYearToDateSale.DataBindings.Add("Text", clientVM, "YTDSale", false, DataSourceUpdateMode.OnValidation, "");
+			checkBoxCreditHold.DataBindings.Add("Checked", clientVM, "CreditHold", false, DataSourceUpdateMode.OnValidation, "");
+			textBoxNotes.DataBindings.Add("Text", clientVM, "Notes", false, DataSourceUpdateMode.OnValidation, "");
 
 
 			dataGridViewClients.AutoGenerateColumns = true;

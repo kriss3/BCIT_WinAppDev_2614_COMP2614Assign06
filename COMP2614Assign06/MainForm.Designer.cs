@@ -56,19 +56,20 @@
 			// 
 			// statusStripProgress
 			// 
+			this.statusStripProgress.ImageScalingSize = new System.Drawing.Size(20, 20);
 			this.statusStripProgress.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelInfo});
-			this.statusStripProgress.Location = new System.Drawing.Point(0, 574);
+			this.statusStripProgress.Location = new System.Drawing.Point(0, 571);
 			this.statusStripProgress.Name = "statusStripProgress";
 			this.statusStripProgress.Padding = new System.Windows.Forms.Padding(1, 0, 12, 0);
-			this.statusStripProgress.Size = new System.Drawing.Size(855, 22);
+			this.statusStripProgress.Size = new System.Drawing.Size(983, 25);
 			this.statusStripProgress.TabIndex = 0;
 			this.statusStripProgress.Text = "statusStrip1";
 			// 
 			// toolStripStatusLabelInfo
 			// 
 			this.toolStripStatusLabelInfo.Name = "toolStripStatusLabelInfo";
-			this.toolStripStatusLabelInfo.Size = new System.Drawing.Size(62, 17);
+			this.toolStripStatusLabelInfo.Size = new System.Drawing.Size(76, 20);
 			this.toolStripStatusLabelInfo.Text = "Loading ...";
 			this.toolStripStatusLabelInfo.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
 			// 
@@ -79,7 +80,7 @@
 			this.dataGridViewClients.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.dataGridViewClients.Name = "dataGridViewClients";
 			this.dataGridViewClients.RowTemplate.Height = 28;
-			this.dataGridViewClients.Size = new System.Drawing.Size(834, 302);
+			this.dataGridViewClients.Size = new System.Drawing.Size(960, 302);
 			this.dataGridViewClients.TabIndex = 1;
 			this.dataGridViewClients.SelectionChanged += new System.EventHandler(this.dataGridViewClients_SelectionChanged);
 			// 
@@ -88,7 +89,7 @@
 			this.labelClientCode.AutoSize = true;
 			this.labelClientCode.Location = new System.Drawing.Point(28, 33);
 			this.labelClientCode.Name = "labelClientCode";
-			this.labelClientCode.Size = new System.Drawing.Size(77, 16);
+			this.labelClientCode.Size = new System.Drawing.Size(96, 20);
 			this.labelClientCode.TabIndex = 2;
 			this.labelClientCode.Text = "Cli&ent Code";
 			// 
@@ -97,7 +98,7 @@
 			this.textBoxClientCode.Location = new System.Drawing.Point(146, 30);
 			this.textBoxClientCode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.textBoxClientCode.Name = "textBoxClientCode";
-			this.textBoxClientCode.Size = new System.Drawing.Size(141, 22);
+			this.textBoxClientCode.Size = new System.Drawing.Size(141, 26);
 			this.textBoxClientCode.TabIndex = 3;
 			// 
 			// textBoxCity
@@ -105,7 +106,7 @@
 			this.textBoxCity.Location = new System.Drawing.Point(146, 117);
 			this.textBoxCity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.textBoxCity.Name = "textBoxCity";
-			this.textBoxCity.Size = new System.Drawing.Size(141, 22);
+			this.textBoxCity.Size = new System.Drawing.Size(141, 26);
 			this.textBoxCity.TabIndex = 5;
 			// 
 			// labelCity
@@ -113,7 +114,7 @@
 			this.labelCity.AutoSize = true;
 			this.labelCity.Location = new System.Drawing.Point(28, 119);
 			this.labelCity.Name = "labelCity";
-			this.labelCity.Size = new System.Drawing.Size(33, 16);
+			this.labelCity.Size = new System.Drawing.Size(43, 20);
 			this.labelCity.TabIndex = 4;
 			this.labelCity.Text = "Ci&ty:";
 			// 
@@ -122,7 +123,7 @@
 			this.textBoxYearToDateSale.Location = new System.Drawing.Point(402, 89);
 			this.textBoxYearToDateSale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.textBoxYearToDateSale.Name = "textBoxYearToDateSale";
-			this.textBoxYearToDateSale.Size = new System.Drawing.Size(141, 22);
+			this.textBoxYearToDateSale.Size = new System.Drawing.Size(141, 26);
 			this.textBoxYearToDateSale.TabIndex = 7;
 			// 
 			// labelYearToDateSale
@@ -130,7 +131,7 @@
 			this.labelYearToDateSale.AutoSize = true;
 			this.labelYearToDateSale.Location = new System.Drawing.Point(308, 90);
 			this.labelYearToDateSale.Name = "labelYearToDateSale";
-			this.labelYearToDateSale.Size = new System.Drawing.Size(70, 16);
+			this.labelYearToDateSale.Size = new System.Drawing.Size(85, 20);
 			this.labelYearToDateSale.TabIndex = 6;
 			this.labelYearToDateSale.Text = "YTD &Sale:";
 			// 
@@ -139,7 +140,7 @@
 			this.textBoxPostalCode.Location = new System.Drawing.Point(402, 58);
 			this.textBoxPostalCode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.textBoxPostalCode.Name = "textBoxPostalCode";
-			this.textBoxPostalCode.Size = new System.Drawing.Size(141, 22);
+			this.textBoxPostalCode.Size = new System.Drawing.Size(141, 26);
 			this.textBoxPostalCode.TabIndex = 9;
 			// 
 			// labelPostalCode
@@ -147,7 +148,7 @@
 			this.labelPostalCode.AutoSize = true;
 			this.labelPostalCode.Location = new System.Drawing.Point(308, 60);
 			this.labelPostalCode.Name = "labelPostalCode";
-			this.labelPostalCode.Size = new System.Drawing.Size(85, 16);
+			this.labelPostalCode.Size = new System.Drawing.Size(105, 20);
 			this.labelPostalCode.TabIndex = 8;
 			this.labelPostalCode.Text = "P&ostal Code:";
 			// 
@@ -156,7 +157,7 @@
 			this.textBoxProvince.Location = new System.Drawing.Point(402, 28);
 			this.textBoxProvince.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.textBoxProvince.Name = "textBoxProvince";
-			this.textBoxProvince.Size = new System.Drawing.Size(141, 22);
+			this.textBoxProvince.Size = new System.Drawing.Size(141, 26);
 			this.textBoxProvince.TabIndex = 11;
 			// 
 			// labelProvince
@@ -164,7 +165,7 @@
 			this.labelProvince.AutoSize = true;
 			this.labelProvince.Location = new System.Drawing.Point(308, 30);
 			this.labelProvince.Name = "labelProvince";
-			this.labelProvince.Size = new System.Drawing.Size(64, 16);
+			this.labelProvince.Size = new System.Drawing.Size(79, 20);
 			this.labelProvince.TabIndex = 10;
 			this.labelProvince.Text = "&Province:";
 			// 
@@ -173,7 +174,7 @@
 			this.textBoxAddress1.Location = new System.Drawing.Point(146, 88);
 			this.textBoxAddress1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.textBoxAddress1.Name = "textBoxAddress1";
-			this.textBoxAddress1.Size = new System.Drawing.Size(141, 22);
+			this.textBoxAddress1.Size = new System.Drawing.Size(141, 26);
 			this.textBoxAddress1.TabIndex = 13;
 			// 
 			// labelAddress1
@@ -181,7 +182,7 @@
 			this.labelAddress1.AutoSize = true;
 			this.labelAddress1.Location = new System.Drawing.Point(28, 91);
 			this.labelAddress1.Name = "labelAddress1";
-			this.labelAddress1.Size = new System.Drawing.Size(72, 16);
+			this.labelAddress1.Size = new System.Drawing.Size(90, 20);
 			this.labelAddress1.TabIndex = 12;
 			this.labelAddress1.Text = "&Address 1:";
 			// 
@@ -190,7 +191,7 @@
 			this.textBoxCompanyName.Location = new System.Drawing.Point(146, 59);
 			this.textBoxCompanyName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.textBoxCompanyName.Name = "textBoxCompanyName";
-			this.textBoxCompanyName.Size = new System.Drawing.Size(141, 22);
+			this.textBoxCompanyName.Size = new System.Drawing.Size(141, 26);
 			this.textBoxCompanyName.TabIndex = 15;
 			// 
 			// labelCompanyName
@@ -198,7 +199,7 @@
 			this.labelCompanyName.AutoSize = true;
 			this.labelCompanyName.Location = new System.Drawing.Point(28, 61);
 			this.labelCompanyName.Name = "labelCompanyName";
-			this.labelCompanyName.Size = new System.Drawing.Size(109, 16);
+			this.labelCompanyName.Size = new System.Drawing.Size(133, 20);
 			this.labelCompanyName.TabIndex = 14;
 			this.labelCompanyName.Text = "&Company Name:";
 			// 
@@ -216,7 +217,7 @@
 			this.labelNotes.AutoSize = true;
 			this.labelNotes.Location = new System.Drawing.Point(308, 122);
 			this.labelNotes.Name = "labelNotes";
-			this.labelNotes.Size = new System.Drawing.Size(47, 16);
+			this.labelNotes.Size = new System.Drawing.Size(58, 20);
 			this.labelNotes.TabIndex = 18;
 			this.labelNotes.Text = "&Notes:";
 			// 
@@ -226,7 +227,7 @@
 			this.checkBoxCreditHold.Location = new System.Drawing.Point(312, 226);
 			this.checkBoxCreditHold.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.checkBoxCreditHold.Name = "checkBoxCreditHold";
-			this.checkBoxCreditHold.Size = new System.Drawing.Size(94, 20);
+			this.checkBoxCreditHold.Size = new System.Drawing.Size(116, 24);
 			this.checkBoxCreditHold.TabIndex = 20;
 			this.checkBoxCreditHold.Text = "Credit Hold";
 			this.checkBoxCreditHold.UseVisualStyleBackColor = true;
@@ -244,9 +245,9 @@
 			// 
 			// MainForm
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(855, 596);
+			this.ClientSize = new System.Drawing.Size(983, 596);
 			this.Controls.Add(this.buttonSave);
 			this.Controls.Add(this.checkBoxCreditHold);
 			this.Controls.Add(this.textBoxNotes);
