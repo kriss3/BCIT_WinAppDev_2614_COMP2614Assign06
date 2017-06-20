@@ -38,6 +38,8 @@ namespace COMP2614Assign06
 			clientVM = new ClientViewModel(res);
 			setupBindings();
 			setupGridView(res);
+			toolStripStatusLabelInfo.Text = "Loaded";
+			
 		}
 
 		private void setupGridView(ClientCollection clients)
