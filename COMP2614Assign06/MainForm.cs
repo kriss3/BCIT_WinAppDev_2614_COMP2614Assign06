@@ -21,6 +21,7 @@ namespace COMP2614Assign06
 
 		private void MainForm_Load(object sender, EventArgs e)
 		{
+			this.Text = this.Text + " | current user: " + Helper.GetTitle();
 			BackgroundWorker bgw = new BackgroundWorker();
 			bgw.DoWork += bgw_DoWork;
 			bgw.RunWorkerCompleted += bgw_RunWorkerCompleted;

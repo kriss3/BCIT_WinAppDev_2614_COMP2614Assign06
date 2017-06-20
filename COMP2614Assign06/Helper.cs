@@ -18,5 +18,10 @@ namespace COMP2614Assign06
 		{
 			return ClientRepository.GetClients();
 		}
+
+		public static string GetTitle()
+		{
+			return Environment.UserName;
+		}
 	}
 }

@@ -275,7 +275,7 @@
 			this.MaximizeBox = false;
 			this.Name = "MainForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Data Binding Assignemtn 6";
+			this.Text = "Data Binding Assignment 6";
 			this.Load += new System.EventHandler(this.MainForm_Load);
 			this.statusStripProgress.ResumeLayout(false);
 			this.statusStripProgress.PerformLayout();
