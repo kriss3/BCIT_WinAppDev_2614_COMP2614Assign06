@@ -22,9 +22,6 @@ namespace COMP2614Assign06
 		private void MainForm_Load(object sender, EventArgs e)
 		{
 			this.Text = this.Text + " | current user: " + Helper.GetTitle();
-			BackgroundWorker bgw = new BackgroundWorker();
-			bgw.DoWork += bgw_DoWork;
-			bgw.RunWorkerCompleted += bgw_RunWorkerCompleted;
 			bgw.RunWorkerAsync();
 			
 		}
@@ -34,12 +31,11 @@ namespace COMP2614Assign06
 		}
 		private void bgw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
-			var res = e.Result as ClientCollection;
+			var res = (ClientCollection)e.Result;
 			clientVM = new ClientViewModel(res);
 			setupBindings();
 			setupGridView(res);
 			toolStripStatusLabelInfo.Text = "Loaded";
-			
 		}
 
 		private void setupGridView(ClientCollection clients)
