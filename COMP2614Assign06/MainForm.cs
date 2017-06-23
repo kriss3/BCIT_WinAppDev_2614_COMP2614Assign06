@@ -63,9 +63,13 @@ namespace COMP2614Assign06
 		private void dataGridViewClients_SelectionChanged(object sender, EventArgs e)
 		{
 			int index = dataGridViewClients.CurrentRow.Index;
-
 			Client client = clientVM.Clients[index];
 			clientVM.SetDisplayProduct(client);
+		}
+
+		private void buttonSave_Click(object sender, EventArgs e)
+		{
+			MessageBox.Show("This is where Database will be updated\nwith new values !!!", "Not Implemented Functionality", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 		}
 	}
 }

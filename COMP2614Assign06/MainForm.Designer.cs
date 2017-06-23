@@ -81,6 +81,8 @@
 			this.dataGridViewClients.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.dataGridViewClients.Name = "dataGridViewClients";
 			this.dataGridViewClients.RowTemplate.Height = 28;
+			this.dataGridViewClients.RowTemplate.ReadOnly = true;
+			this.dataGridViewClients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dataGridViewClients.Size = new System.Drawing.Size(960, 302);
 			this.dataGridViewClients.TabIndex = 18;
 			this.dataGridViewClients.SelectionChanged += new System.EventHandler(this.dataGridViewClients_SelectionChanged);
@@ -243,6 +245,7 @@
 			this.buttonSave.TabIndex = 17;
 			this.buttonSave.Text = "Sa&ve";
 			this.buttonSave.UseVisualStyleBackColor = true;
+			this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
 			// 
 			// bgw
 			// 
