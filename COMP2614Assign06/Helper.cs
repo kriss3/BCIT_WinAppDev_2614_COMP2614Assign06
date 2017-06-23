@@ -7,7 +7,7 @@ using System.Configuration;
 
 namespace COMP2614Assign06
 {
-	class Helper
+	public class Helper
 	{
 		public static string GetConnectionString()
 		{

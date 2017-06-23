@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace COMP2614Assign06
 {
-	class ClientViewModel : INotifyPropertyChanged
+	public class ClientViewModel : INotifyPropertyChanged
 	{
 		private string clientCode;
 		private string companyName;

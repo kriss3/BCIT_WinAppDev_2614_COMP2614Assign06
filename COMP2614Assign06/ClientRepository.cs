@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace COMP2614Assign06
 {
-	class ClientRepository
+	public class ClientRepository
 	{
 		public static ClientCollection GetClients()
 		{
