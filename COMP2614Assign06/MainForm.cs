@@ -12,7 +12,7 @@ namespace COMP2614Assign06
 {
 	public partial class MainForm : Form
 	{
-
+		private ClientCollection res;
 		private ClientViewModel clientVM;
 		public MainForm()
 		{
@@ -31,13 +31,11 @@ namespace COMP2614Assign06
 		}
 		private void bgw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
-			var res = (ClientCollection)e.Result;
+			res = (ClientCollection)e.Result;
 			clientVM = new ClientViewModel(res);
 			setupBindings();
 			setupGridView(res);
 			toolStripStatusLabelInfo.Text = "Loaded";
-			MessageBox.Show($"Total YTD Sale: {res.TotalYTDSales}\nTotal Credit Hold: {res.CreditHoldCount}", 
-				"Results Window", MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 
 		private void setupGridView(ClientCollection clients)
@@ -49,11 +47,6 @@ namespace COMP2614Assign06
 		{
 			dataGridViewClients.AutoGenerateColumns = true;
 			dataGridViewClients.DataSource = clientVM.Clients;
-		}
-
-		private void dataGridViewClients_SelectionChanged(object sender, EventArgs e)
-		{
-			
 		}
 
 		private void buttonSave_Click(object sender, EventArgs e)
@@ -71,8 +64,12 @@ namespace COMP2614Assign06
 			ClientEditDialog ced = new ClientEditDialog();
 			ced.ClientVM = clientVM;
 			ced.ShowDialog();
+		}
 
-			
+		private void buttonStats_Click(object sender, EventArgs e)
+		{
+			MessageBox.Show($"Total YTD Sale: {res.TotalYTDSales}\nTotal Credit Hold: {res.CreditHoldCount}",
+				"Results Window", MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 	}
 }

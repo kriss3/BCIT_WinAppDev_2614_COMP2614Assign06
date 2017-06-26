@@ -34,6 +34,7 @@
 			this.dataGridViewClients = new System.Windows.Forms.DataGridView();
 			this.buttonSave = new System.Windows.Forms.Button();
 			this.bgw = new System.ComponentModel.BackgroundWorker();
+			this.buttonStats = new System.Windows.Forms.Button();
 			this.statusStripProgress.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridViewClients)).BeginInit();
 			this.SuspendLayout();
@@ -68,7 +69,6 @@
 			this.dataGridViewClients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dataGridViewClients.Size = new System.Drawing.Size(960, 421);
 			this.dataGridViewClients.TabIndex = 18;
-			this.dataGridViewClients.SelectionChanged += new System.EventHandler(this.dataGridViewClients_SelectionChanged);
 			this.dataGridViewClients.DoubleClick += new System.EventHandler(this.dataGridViewClients_DoubleClick);
 			// 
 			// buttonSave
@@ -89,11 +89,22 @@
 			this.bgw.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgw_DoWork);
 			this.bgw.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgw_RunWorkerCompleted);
 			// 
+			// buttonStats
+			// 
+			this.buttonStats.Location = new System.Drawing.Point(823, 452);
+			this.buttonStats.Name = "buttonStats";
+			this.buttonStats.Size = new System.Drawing.Size(75, 27);
+			this.buttonStats.TabIndex = 20;
+			this.buttonStats.Text = "Stats";
+			this.buttonStats.UseVisualStyleBackColor = true;
+			this.buttonStats.Click += new System.EventHandler(this.buttonStats_Click);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(997, 514);
+			this.Controls.Add(this.buttonStats);
 			this.Controls.Add(this.buttonSave);
 			this.Controls.Add(this.dataGridViewClients);
 			this.Controls.Add(this.statusStripProgress);
@@ -121,6 +132,7 @@
 		private System.Windows.Forms.DataGridView dataGridViewClients;
 		private System.Windows.Forms.Button buttonSave;
 		private System.ComponentModel.BackgroundWorker bgw;
+		private System.Windows.Forms.Button buttonStats;
 	}
 }
 
