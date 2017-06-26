@@ -36,6 +36,8 @@ namespace COMP2614Assign06
 			setupBindings();
 			setupGridView(res);
 			toolStripStatusLabelInfo.Text = "Loaded";
+			MessageBox.Show($"Total YTD Sale: {res.TotalYTDSales}\nTotal Credit Hold: {res.CreditHoldCount}", 
+				"Results Window", MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 
 		private void setupGridView(ClientCollection clients)

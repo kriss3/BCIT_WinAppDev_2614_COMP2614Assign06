@@ -52,7 +52,7 @@
 			// buttonOK
 			// 
 			this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.buttonOK.Location = new System.Drawing.Point(379, 297);
+			this.buttonOK.Location = new System.Drawing.Point(427, 258);
 			this.buttonOK.Name = "buttonOK";
 			this.buttonOK.Size = new System.Drawing.Size(75, 33);
 			this.buttonOK.TabIndex = 0;
@@ -63,7 +63,7 @@
 			// 
 			this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.buttonCancel.Location = new System.Drawing.Point(460, 297);
+			this.buttonCancel.Location = new System.Drawing.Point(508, 258);
 			this.buttonCancel.Name = "buttonCancel";
 			this.buttonCancel.Size = new System.Drawing.Size(75, 33);
 			this.buttonCancel.TabIndex = 1;
@@ -73,7 +73,7 @@
 			// checkBoxCreditHold
 			// 
 			this.checkBoxCreditHold.AutoSize = true;
-			this.checkBoxCreditHold.Location = new System.Drawing.Point(299, 222);
+			this.checkBoxCreditHold.Location = new System.Drawing.Point(321, 117);
 			this.checkBoxCreditHold.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.checkBoxCreditHold.Name = "checkBoxCreditHold";
 			this.checkBoxCreditHold.Size = new System.Drawing.Size(107, 24);
@@ -83,7 +83,7 @@
 			// 
 			// textBoxNotes
 			// 
-			this.textBoxNotes.Location = new System.Drawing.Point(389, 115);
+			this.textBoxNotes.Location = new System.Drawing.Point(442, 145);
 			this.textBoxNotes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.textBoxNotes.Multiline = true;
 			this.textBoxNotes.Name = "textBoxNotes";
@@ -93,7 +93,7 @@
 			// labelNotes
 			// 
 			this.labelNotes.AutoSize = true;
-			this.labelNotes.Location = new System.Drawing.Point(295, 118);
+			this.labelNotes.Location = new System.Drawing.Point(317, 148);
 			this.labelNotes.Name = "labelNotes";
 			this.labelNotes.Size = new System.Drawing.Size(55, 20);
 			this.labelNotes.TabIndex = 31;
@@ -101,7 +101,7 @@
 			// 
 			// textBoxCompanyName
 			// 
-			this.textBoxCompanyName.Location = new System.Drawing.Point(133, 55);
+			this.textBoxCompanyName.Location = new System.Drawing.Point(148, 55);
 			this.textBoxCompanyName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.textBoxCompanyName.Name = "textBoxCompanyName";
 			this.textBoxCompanyName.Size = new System.Drawing.Size(141, 26);
@@ -118,7 +118,7 @@
 			// 
 			// textBoxAddress1
 			// 
-			this.textBoxAddress1.Location = new System.Drawing.Point(133, 84);
+			this.textBoxAddress1.Location = new System.Drawing.Point(148, 84);
 			this.textBoxAddress1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.textBoxAddress1.Name = "textBoxAddress1";
 			this.textBoxAddress1.Size = new System.Drawing.Size(141, 26);
@@ -135,7 +135,7 @@
 			// 
 			// textBoxProvince
 			// 
-			this.textBoxProvince.Location = new System.Drawing.Point(389, 24);
+			this.textBoxProvince.Location = new System.Drawing.Point(442, 26);
 			this.textBoxProvince.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.textBoxProvince.Name = "textBoxProvince";
 			this.textBoxProvince.Size = new System.Drawing.Size(141, 26);
@@ -144,7 +144,7 @@
 			// labelProvince
 			// 
 			this.labelProvince.AutoSize = true;
-			this.labelProvince.Location = new System.Drawing.Point(295, 26);
+			this.labelProvince.Location = new System.Drawing.Point(317, 29);
 			this.labelProvince.Name = "labelProvince";
 			this.labelProvince.Size = new System.Drawing.Size(73, 20);
 			this.labelProvince.TabIndex = 25;
@@ -152,7 +152,7 @@
 			// 
 			// textBoxPostalCode
 			// 
-			this.textBoxPostalCode.Location = new System.Drawing.Point(389, 54);
+			this.textBoxPostalCode.Location = new System.Drawing.Point(442, 56);
 			this.textBoxPostalCode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.textBoxPostalCode.Name = "textBoxPostalCode";
 			this.textBoxPostalCode.Size = new System.Drawing.Size(141, 26);
@@ -161,7 +161,7 @@
 			// labelPostalCode
 			// 
 			this.labelPostalCode.AutoSize = true;
-			this.labelPostalCode.Location = new System.Drawing.Point(295, 56);
+			this.labelPostalCode.Location = new System.Drawing.Point(317, 59);
 			this.labelPostalCode.Name = "labelPostalCode";
 			this.labelPostalCode.Size = new System.Drawing.Size(99, 20);
 			this.labelPostalCode.TabIndex = 27;
@@ -169,7 +169,7 @@
 			// 
 			// textBoxYearToDateSale
 			// 
-			this.textBoxYearToDateSale.Location = new System.Drawing.Point(389, 85);
+			this.textBoxYearToDateSale.Location = new System.Drawing.Point(442, 86);
 			this.textBoxYearToDateSale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.textBoxYearToDateSale.Name = "textBoxYearToDateSale";
 			this.textBoxYearToDateSale.Size = new System.Drawing.Size(141, 26);
@@ -178,7 +178,7 @@
 			// labelYearToDateSale
 			// 
 			this.labelYearToDateSale.AutoSize = true;
-			this.labelYearToDateSale.Location = new System.Drawing.Point(295, 86);
+			this.labelYearToDateSale.Location = new System.Drawing.Point(317, 89);
 			this.labelYearToDateSale.Name = "labelYearToDateSale";
 			this.labelYearToDateSale.Size = new System.Drawing.Size(81, 20);
 			this.labelYearToDateSale.TabIndex = 29;
@@ -186,7 +186,7 @@
 			// 
 			// textBoxCity
 			// 
-			this.textBoxCity.Location = new System.Drawing.Point(133, 113);
+			this.textBoxCity.Location = new System.Drawing.Point(148, 113);
 			this.textBoxCity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.textBoxCity.Name = "textBoxCity";
 			this.textBoxCity.Size = new System.Drawing.Size(141, 26);
@@ -203,7 +203,7 @@
 			// 
 			// textBoxClientCode
 			// 
-			this.textBoxClientCode.Location = new System.Drawing.Point(133, 26);
+			this.textBoxClientCode.Location = new System.Drawing.Point(148, 26);
 			this.textBoxClientCode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.textBoxClientCode.Name = "textBoxClientCode";
 			this.textBoxClientCode.Size = new System.Drawing.Size(141, 26);
@@ -224,7 +224,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.buttonCancel;
-			this.ClientSize = new System.Drawing.Size(547, 342);
+			this.ClientSize = new System.Drawing.Size(595, 303);
 			this.Controls.Add(this.checkBoxCreditHold);
 			this.Controls.Add(this.textBoxNotes);
 			this.Controls.Add(this.labelNotes);

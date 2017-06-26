@@ -43,10 +43,10 @@
 			this.statusStripProgress.ImageScalingSize = new System.Drawing.Size(20, 20);
 			this.statusStripProgress.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelInfo});
-			this.statusStripProgress.Location = new System.Drawing.Point(0, 574);
+			this.statusStripProgress.Location = new System.Drawing.Point(0, 492);
 			this.statusStripProgress.Name = "statusStripProgress";
 			this.statusStripProgress.Padding = new System.Windows.Forms.Padding(1, 0, 12, 0);
-			this.statusStripProgress.Size = new System.Drawing.Size(983, 22);
+			this.statusStripProgress.Size = new System.Drawing.Size(997, 22);
 			this.statusStripProgress.TabIndex = 19;
 			this.statusStripProgress.Text = "statusStrip1";
 			// 
@@ -66,15 +66,16 @@
 			this.dataGridViewClients.RowTemplate.Height = 28;
 			this.dataGridViewClients.RowTemplate.ReadOnly = true;
 			this.dataGridViewClients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dataGridViewClients.Size = new System.Drawing.Size(960, 498);
+			this.dataGridViewClients.Size = new System.Drawing.Size(960, 421);
 			this.dataGridViewClients.TabIndex = 18;
 			this.dataGridViewClients.SelectionChanged += new System.EventHandler(this.dataGridViewClients_SelectionChanged);
 			this.dataGridViewClients.DoubleClick += new System.EventHandler(this.dataGridViewClients_DoubleClick);
 			// 
 			// buttonSave
 			// 
+			this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.buttonSave.Location = new System.Drawing.Point(904, 534);
+			this.buttonSave.Location = new System.Drawing.Point(904, 452);
 			this.buttonSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.buttonSave.Name = "buttonSave";
 			this.buttonSave.Size = new System.Drawing.Size(67, 27);
@@ -92,7 +93,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(983, 596);
+			this.ClientSize = new System.Drawing.Size(997, 514);
 			this.Controls.Add(this.buttonSave);
 			this.Controls.Add(this.dataGridViewClients);
 			this.Controls.Add(this.statusStripProgress);
