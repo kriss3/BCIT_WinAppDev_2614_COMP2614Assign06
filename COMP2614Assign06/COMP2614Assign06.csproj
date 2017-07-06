@@ -47,29 +47,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Client.cs" />
-    <Compile Include="ClientCollection.cs" />
-    <Compile Include="ClientEditDialog.cs">
+    <Compile Include="Business\ClientValidation.cs" />
+    <Compile Include="Common\Client.cs" />
+    <Compile Include="Common\ClientCollection.cs" />
+    <Compile Include="UI\ClientEditDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClientEditDialog.Designer.cs">
+    <Compile Include="UI\ClientEditDialog.Designer.cs">
       <DependentUpon>ClientEditDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClientRepository.cs" />
-    <Compile Include="ClientViewModel.cs" />
-    <Compile Include="Helper.cs" />
-    <Compile Include="MainForm.cs">
+    <Compile Include="Data\ClientRepository.cs" />
+    <Compile Include="UI\ClientViewModel.cs" />
+    <Compile Include="Common\Helper.cs" />
+    <Compile Include="UI\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="UI\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MyApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ClientEditDialog.resx">
+    <EmbeddedResource Include="UI\ClientEditDialog.resx">
       <DependentUpon>ClientEditDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="UI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 
-namespace COMP2614Assign06
+using COMP2614Assign06.Data;
+
+namespace COMP2614Assign06.Common
 {
 	public class Helper
 	{

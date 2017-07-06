@@ -6,7 +6,9 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace COMP2614Assign06
+using COMP2614Assign06.Common;
+
+namespace COMP2614Assign06.UI
 {
 	public class ClientViewModel : INotifyPropertyChanged
 	{
@@ -133,6 +135,19 @@ namespace COMP2614Assign06
 			this.YTDSale = cl.YTDSale;
 			this.CreditHold = cl.CreditHold;
 			this.Notes = cl.Notes;
+		}
+
+		public Client GetDisplayClient()
+		{
+			return new Client { ClientCode = this.ClientCode,
+								CompanyName = this.CompanyName,
+								Address1 = this.Address1,
+								City = this.City,
+								Province = this.Province,
+								PostalCode = this.PostalCode,
+								YTDSale = this.YTDSale,
+								CreditHold = this.CreditHold,
+								Notes = this.Notes };
 		}
 	}
 }

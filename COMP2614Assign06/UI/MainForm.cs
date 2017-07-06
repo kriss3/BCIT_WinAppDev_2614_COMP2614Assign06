@@ -8,7 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace COMP2614Assign06
+using COMP2614Assign06.Common;
+
+namespace COMP2614Assign06.UI
 {
 	public partial class MainForm : Form
 	{
@@ -64,6 +66,8 @@ namespace COMP2614Assign06
 			ClientEditDialog ced = new ClientEditDialog();
 			ced.ClientVM = clientVM;
 			ced.ShowDialog();
+
+			bgw.RunWorkerAsync();
 		}
 
 		private void buttonStats_Click(object sender, EventArgs e)

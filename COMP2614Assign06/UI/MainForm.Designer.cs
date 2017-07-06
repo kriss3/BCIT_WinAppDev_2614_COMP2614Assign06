@@ -1,4 +1,4 @@
-﻿namespace COMP2614Assign06
+﻿namespace COMP2614Assign06.UI
 {
 	partial class MainForm
 	{
@@ -43,7 +43,7 @@
 			// 
 			this.statusStripProgress.ImageScalingSize = new System.Drawing.Size(20, 20);
 			this.statusStripProgress.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabelInfo});
+			this.toolStripStatusLabelInfo});
 			this.statusStripProgress.Location = new System.Drawing.Point(0, 492);
 			this.statusStripProgress.Name = "statusStripProgress";
 			this.statusStripProgress.Padding = new System.Windows.Forms.Padding(1, 0, 12, 0);

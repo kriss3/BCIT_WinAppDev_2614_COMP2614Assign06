@@ -8,7 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace COMP2614Assign06
+using COMP2614Assign06.Common;
+using COMP2614Assign06.Data;
+
+namespace COMP2614Assign06.UI
 {
 	public partial class ClientEditDialog : Form
 	{
@@ -37,5 +40,34 @@ namespace COMP2614Assign06
 			textBoxNotes.DataBindings.Add("Text", ClientVM, "Notes", false, DataSourceUpdateMode.OnValidation, "");
 
 		}
+
+		private void buttonSave_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				Client cl = ClientVM.GetDisplayClient();
+
+
+				int rowsAffected;
+
+				if (!String.IsNullOrEmpty(cl.ClientCode))
+				{
+					//ProductValidation.UpdateProduct(product); 
+					rowsAffected = ClientRepository.UpdateProduct(cl);
+					
+				}
+				else
+				{
+					rowsAffected =  ClientRepository.AddClient(cl);
+				}
+			}
+			catch (Exception)
+			{
+
+				throw;
+			}
+		}
+
+		
 	}
 }
