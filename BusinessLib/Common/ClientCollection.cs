@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace COMP2614Assign06.Common
+namespace BusinessLib.Common
 {
 	public class ClientCollection : BindingList<Client>
 	{
@@ -13,7 +10,7 @@ namespace COMP2614Assign06.Common
 		{
 			get
 			{
-				return this.Select(x => x.YTDSale).Sum();
+				return this.Where(x => x.CreditHold == true).Select(x=>x.YTDSale).Sum();
 			} 
 		}
 

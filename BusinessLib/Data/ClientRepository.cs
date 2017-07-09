@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-using COMP2614Assign06.Common;
+using BusinessLib.Common;
 
-namespace COMP2614Assign06.Data
+namespace BusinessLib.Data
 {
 	public class ClientRepository
 	{
@@ -63,19 +59,25 @@ namespace COMP2614Assign06.Data
 		{
 			using (SqlConnection conn = new SqlConnection(Helper.GetConnectionString()))
 			{
-				string query = @"Insert into dbo.Client013054 (
-								 ClientCode, 
+				string query = @"Insert into dbo.Client013054
+								 (ClientCode, 
 								 CompanyName, 
 								 Address1, 
 								 City, 
 								 Province,
-								 PostalCode
 								 PostalCode, 
 								 YTDSales, 
 								 CreditHold, 
 								 Notes)
-								VALUES (@clientCode, @companyName, @address1, @city, @province, @postalCode,
-										@ytdSales, @creditHold, @notes)";
+								VALUES (@clientCode, 
+										@companyName, 
+										@address1, 
+										@city, 
+										@province, 
+										@postalCode,
+										@ytdSales,
+										@creditHold,
+										@notes)";
 
 				using (SqlCommand cmd = new SqlCommand())
 				{
@@ -125,20 +127,20 @@ namespace COMP2614Assign06.Data
 			}
 		}
 
-		public static int UpdateProduct(Client client)
+		public static int UpdateClient(Client client)
 		{
 			using (SqlConnection conn = new SqlConnection(Helper.GetConnectionString()))
 			{
 				string query = @"UPDATE dbo.Client013054
 								 SET ClientCode = @clientCode
-								 , CompanyName = @companyName
-								 , Address1 = @address1
-								 , City = @city
-								 , Province = @province
-								 , PostalCode = @postalCode
-								 , YTDSales = @ytdSales
-								 , CreditHold = @creditHold
-								 , Notes = @notes
+								   , CompanyName = @companyName
+								   , Address1 = @address1
+								   , City = @city
+								   , Province = @province
+								   , PostalCode = @postalCode
+								   , YTDSales = @ytdSales
+								   , CreditHold = @creditHold
+								   , Notes = @notes
 								 WHERE ClientCode = @clientCode";
 
 				using (SqlCommand cmd = new SqlCommand())
@@ -172,7 +174,7 @@ namespace COMP2614Assign06.Data
 					cmd.Parameters.AddWithValue("@province", client.Province);
 					cmd.Parameters.AddWithValue("@postalCode", client.PostalCode);
 					cmd.Parameters.AddWithValue("@ytdSales", client.YTDSale);
-					cmd.Parameters.AddWithValue("@creditHold", client.YTDSale);
+					cmd.Parameters.AddWithValue("@creditHold", client.CreditHold);
 
 					if (client.Notes != null)
 					{

@@ -8,7 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using COMP2614Assign06.Common;
+using BusinessLib.Common;
+using BusinessLib.Business;
+using System.Data.SqlClient;
 
 namespace COMP2614Assign06.UI
 {
@@ -34,9 +36,11 @@ namespace COMP2614Assign06.UI
 		private void bgw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
 			res = (ClientCollection)e.Result;
-			clientVM = new ClientViewModel(res);
+			
+			clientVM = new ClientViewModel(ClientValidation.GetClients());
 			setupBindings();
 			setupGridView(res);
+			refreshStatsPanel();
 			toolStripStatusLabelInfo.Text = "Loaded";
 		}
 
@@ -60,20 +64,79 @@ namespace COMP2614Assign06.UI
 		{
 			int index = dataGridViewClients.CurrentRow.Index;
 			Client client = clientVM.Clients[index];
-			clientVM.SetDisplayProduct(client);
+			clientVM.SetDisplayClient(client);
 
-
-			ClientEditDialog ced = new ClientEditDialog();
-			ced.ClientVM = clientVM;
-			ced.ShowDialog();
-
-			bgw.RunWorkerAsync();
+			using (ClientEditDialog ced = new ClientEditDialog())
+			{
+				ced.ClientVM = clientVM;
+				if (ced.ShowDialog() == DialogResult.OK)
+				{
+					bgw.RunWorkerAsync();
+					refreshStatsPanel();
+				}
+			}
 		}
 
-		private void buttonStats_Click(object sender, EventArgs e)
+		private void refreshStatsPanel()
 		{
-			MessageBox.Show($"Total YTD Sale: {res.TotalYTDSales}\nTotal Credit Hold: {res.CreditHoldCount}",
-				"Results Window", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			labelYtdSale.Text =  res.TotalYTDSales.ToString();
+			labelCreditHoldCount.Text =  res.CreditHoldCount.ToString();
+		}
+
+		private void buttonNew_Click(object sender, EventArgs e)
+		{
+			Button buttonOrigin = (Button)sender;
+			clientVM.SetDisplayClient(new Client(String.Empty, String.Empty, string.Empty, String.Empty, string.Empty, string.Empty, 0.0m, false, String.Empty));
+			using (ClientEditDialog ced = new ClientEditDialog())
+			{
+				ced.ClientVM = clientVM;
+				ced.callingButton = buttonOrigin.Text;
+				ced.ShowDialog();
+				bgw.RunWorkerAsync();
+			}
+		}
+
+		private void buttonDelete_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				int currentRecord = dataGridViewClients.CurrentRow.Index;
+				Client cl = clientVM.Clients[currentRecord];
+				DeleteCurrentRecord(cl, checkBoxDeleteConfirmation.Checked);
+			}
+			catch (SqlException sqlEx)
+			{
+				MessageBox.Show("DB Error: " + sqlEx.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				throw;
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Processing Error: " + ex.Message, "Error" , MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+
+		private void DeleteCurrentRecord(Client cl, bool confirmationRequired)
+		{
+			DialogResult response = DialogResult.None;
+			if (confirmationRequired)
+			{
+				response = MessageBox.Show("You are about to Delete record with ID: " + cl.ClientCode + " ?\nAre you sure?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+			}
+			else
+			{
+				DeleteRecord(cl);
+			}
+
+			if (response == DialogResult.Yes)
+			{
+				DeleteRecord(cl);
+			}
+		}
+
+		private void DeleteRecord(Client cl)
+		{
+			ClientValidation.DeleteClient(cl);
+			bgw.RunWorkerAsync();
 		}
 	}
 }

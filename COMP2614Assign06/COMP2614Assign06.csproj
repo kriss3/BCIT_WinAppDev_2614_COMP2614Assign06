@@ -47,18 +47,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business\ClientValidation.cs" />
-    <Compile Include="Common\Client.cs" />
-    <Compile Include="Common\ClientCollection.cs" />
     <Compile Include="UI\ClientEditDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\ClientEditDialog.Designer.cs">
       <DependentUpon>ClientEditDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Data\ClientRepository.cs" />
     <Compile Include="UI\ClientViewModel.cs" />
-    <Compile Include="Common\Helper.cs" />
     <Compile Include="UI\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +89,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLib\BusinessLib.csproj">
+      <Project>{640b0b82-9022-4508-936f-838ec7560b26}</Project>
+      <Name>BusinessLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

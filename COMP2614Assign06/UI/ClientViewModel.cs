@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
-using COMP2614Assign06.Common;
+using BusinessLib.Common;
 
 namespace COMP2614Assign06.UI
 {
@@ -32,7 +27,7 @@ namespace COMP2614Assign06.UI
 		{
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
-		public ClientCollection Clients { get; }
+		public ClientCollection Clients { get; set; }
 
 		public string ClientCode
 		{
@@ -124,7 +119,7 @@ namespace COMP2614Assign06.UI
 			}
 		}
 
-		public void SetDisplayProduct(Client cl)
+		public void SetDisplayClient(Client cl)
 		{
 			this.ClientCode = cl.ClientCode;
 			this.CompanyName = cl.CompanyName;

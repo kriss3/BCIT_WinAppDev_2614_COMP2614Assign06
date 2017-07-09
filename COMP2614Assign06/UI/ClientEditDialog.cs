@@ -1,21 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using COMP2614Assign06.Common;
-using COMP2614Assign06.Data;
+using BusinessLib.Business;
+using BusinessLib.Common;
 
 namespace COMP2614Assign06.UI
 {
 	public partial class ClientEditDialog : Form
 	{
 		public ClientViewModel ClientVM { get; set; }
+		public String callingButton { get; set; }
 
 		public ClientEditDialog()
 		{
@@ -38,36 +32,53 @@ namespace COMP2614Assign06.UI
 			textBoxYearToDateSale.DataBindings.Add("Text", ClientVM, "YTDSale", false, DataSourceUpdateMode.OnValidation, "");
 			checkBoxCreditHold.DataBindings.Add("Checked", ClientVM, "CreditHold", false, DataSourceUpdateMode.OnValidation, "");
 			textBoxNotes.DataBindings.Add("Text", ClientVM, "Notes", false, DataSourceUpdateMode.OnValidation, "");
-
 		}
 
-		private void buttonSave_Click(object sender, EventArgs e)
+
+		private void buttonOK_Click(object sender, EventArgs e)
 		{
+			Client cl;
+			string errorMessage = String.Empty;
+			errorProvider.SetIconAlignment(buttonOK, ErrorIconAlignment.MiddleLeft);
+			errorProvider.SetError(buttonOK, "");
+
 			try
 			{
-				Client cl = ClientVM.GetDisplayClient();
+				cl= ClientVM.GetDisplayClient();
 
+				int rowsAffected = 0;
 
-				int rowsAffected;
-
-				if (!String.IsNullOrEmpty(cl.ClientCode))
+				if (callingButton != null)
 				{
-					//ProductValidation.UpdateProduct(product); 
-					rowsAffected = ClientRepository.UpdateProduct(cl);
-					
+					if (callingButton.Contains("New"))
+					{
+						rowsAffected = ClientValidation.AddClient(cl);
+					}
 				}
 				else
 				{
-					rowsAffected =  ClientRepository.AddClient(cl);
+					rowsAffected = ClientValidation.UpdateClient(cl);
 				}
+
+				if (rowsAffected < 0)
+				{
+					errorMessage = ClientValidation.ErrorMessage;
+					this.DialogResult = DialogResult.None;
+				}
+
+				errorProvider.SetError(buttonOK, errorMessage);
+
 			}
 			catch (Exception)
 			{
-
 				throw;
 			}
-		}
 
-		
+			if (DialogResult == DialogResult.OK)
+			{
+				this.Close();
+				this.Dispose();
+			}
+		}
 	}
 }

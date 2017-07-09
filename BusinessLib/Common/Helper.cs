@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 
-using COMP2614Assign06.Data;
+using BusinessLib.Data;
 
-namespace COMP2614Assign06.Common
+namespace BusinessLib.Common
 {
 	public class Helper
 	{
