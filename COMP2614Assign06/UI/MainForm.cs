@@ -86,7 +86,7 @@ namespace COMP2614Assign06.UI
 		private void buttonNew_Click(object sender, EventArgs e)
 		{
 			Button buttonOrigin = (Button)sender;
-			clientVM.SetDisplayClient(new Client(String.Empty, String.Empty, string.Empty, String.Empty, string.Empty, string.Empty, 0.0m, false, String.Empty));
+			clientVM.SetDisplayClient(new Client(String.Empty, String.Empty, string.Empty, string.Empty, string.Empty, string.Empty, 0.0m, false, String.Empty));
 			using (ClientEditDialog ced = new ClientEditDialog())
 			{
 				ced.ClientVM = clientVM;

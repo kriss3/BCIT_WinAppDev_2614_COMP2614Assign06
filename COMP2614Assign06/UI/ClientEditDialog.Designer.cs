@@ -38,7 +38,6 @@
 			this.labelCompanyName = new System.Windows.Forms.Label();
 			this.textBoxAddress1 = new System.Windows.Forms.TextBox();
 			this.labelAddress1 = new System.Windows.Forms.Label();
-			this.textBoxProvince = new System.Windows.Forms.TextBox();
 			this.labelProvince = new System.Windows.Forms.Label();
 			this.textBoxPostalCode = new System.Windows.Forms.TextBox();
 			this.labelPostalCode = new System.Windows.Forms.Label();
@@ -49,6 +48,7 @@
 			this.textBoxClientCode = new System.Windows.Forms.TextBox();
 			this.labelClientCode = new System.Windows.Forms.Label();
 			this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+			this.comboBoxProvinces = new System.Windows.Forms.ComboBox();
 			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -140,14 +140,6 @@
 			this.labelAddress1.TabIndex = 21;
 			this.labelAddress1.Text = "&Address 1:";
 			// 
-			// textBoxProvince
-			// 
-			this.textBoxProvince.Location = new System.Drawing.Point(441, 14);
-			this.textBoxProvince.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-			this.textBoxProvince.Name = "textBoxProvince";
-			this.textBoxProvince.Size = new System.Drawing.Size(163, 22);
-			this.textBoxProvince.TabIndex = 26;
-			// 
 			// labelProvince
 			// 
 			this.labelProvince.AutoSize = true;
@@ -159,8 +151,10 @@
 			// 
 			// textBoxPostalCode
 			// 
+			this.textBoxPostalCode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
 			this.textBoxPostalCode.Location = new System.Drawing.Point(441, 46);
 			this.textBoxPostalCode.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+			this.textBoxPostalCode.MaxLength = 7;
 			this.textBoxPostalCode.Name = "textBoxPostalCode";
 			this.textBoxPostalCode.Size = new System.Drawing.Size(163, 22);
 			this.textBoxPostalCode.TabIndex = 28;
@@ -233,6 +227,15 @@
 			this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
 			this.errorProvider.ContainerControl = this;
 			// 
+			// comboBoxProvinces
+			// 
+			this.comboBoxProvinces.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBoxProvinces.FormattingEnabled = true;
+			this.comboBoxProvinces.Location = new System.Drawing.Point(441, 13);
+			this.comboBoxProvinces.Name = "comboBoxProvinces";
+			this.comboBoxProvinces.Size = new System.Drawing.Size(163, 24);
+			this.comboBoxProvinces.TabIndex = 34;
+			// 
 			// ClientEditDialog
 			// 
 			this.AcceptButton = this.buttonOK;
@@ -240,6 +243,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.buttonCancel;
 			this.ClientSize = new System.Drawing.Size(620, 324);
+			this.Controls.Add(this.comboBoxProvinces);
 			this.Controls.Add(this.checkBoxCreditHold);
 			this.Controls.Add(this.textBoxNotes);
 			this.Controls.Add(this.labelNotes);
@@ -247,7 +251,6 @@
 			this.Controls.Add(this.labelCompanyName);
 			this.Controls.Add(this.textBoxAddress1);
 			this.Controls.Add(this.labelAddress1);
-			this.Controls.Add(this.textBoxProvince);
 			this.Controls.Add(this.labelProvince);
 			this.Controls.Add(this.textBoxPostalCode);
 			this.Controls.Add(this.labelPostalCode);
@@ -285,7 +288,6 @@
 		private System.Windows.Forms.Label labelCompanyName;
 		private System.Windows.Forms.TextBox textBoxAddress1;
 		private System.Windows.Forms.Label labelAddress1;
-		private System.Windows.Forms.TextBox textBoxProvince;
 		private System.Windows.Forms.Label labelProvince;
 		private System.Windows.Forms.TextBox textBoxPostalCode;
 		private System.Windows.Forms.Label labelPostalCode;
@@ -296,5 +298,6 @@
 		private System.Windows.Forms.TextBox textBoxClientCode;
 		private System.Windows.Forms.Label labelClientCode;
 		private System.Windows.Forms.ErrorProvider errorProvider;
+		private System.Windows.Forms.ComboBox comboBoxProvinces;
 	}
 }

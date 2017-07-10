@@ -25,5 +25,10 @@ namespace BusinessLib.Common
 		{
 			return Environment.UserName;
 		}
+
+		public static List<string> GetProvinces()
+		{
+			return ProvinceRepository.GetProvinces();
+		}
 	}
 }

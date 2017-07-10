@@ -72,6 +72,8 @@ namespace BusinessLib.Business
 		 *	Address1 cannot be empty
 		 *	Province cannot by empty
 		 *	YTDSales cannot be negative 
+		 *	Force the ClientCode to upper case and validate for pattern AAAAA.
+		 *	PostCode in format: <A9A 9A9> 
 		 */
 		private static bool validate(Client client)
 		{
@@ -97,11 +99,19 @@ namespace BusinessLib.Business
 				success = false;
 			}
 
-			if (String.IsNullOrEmpty(client.Province))
+			if (client.Province.Contains("Select") || String.IsNullOrEmpty(client.Province))
 			{
-				errors.Add("Province cannot be empty!");
+				errors.Add("Please choose Province!");
 				success = false;
 			}
+
+			var postCodePattern = @"^[A-Z]\d[A-Z] \d[A-Z]\d$"; // Generic and does not validate against letters NOT USED in Canadian Postal Codes;
+			if (!Regex.IsMatch(client.PostalCode, postCodePattern))
+			{
+				errors.Add("Invlid Postal Code format! => Please, use format: <A9A 9A9>");
+				success = false;
+			}
+
 
 			if (client.YTDSale <= 0.0m)
 			{
