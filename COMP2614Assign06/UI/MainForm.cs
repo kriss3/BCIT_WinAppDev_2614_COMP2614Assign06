@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using BusinessLib.Common;
@@ -14,9 +8,15 @@ using System.Data.SqlClient;
 
 namespace COMP2614Assign06.UI
 {
+	/// <summary>
+	/// Main application starter;
+	/// @see https://github.com/kriss3/BCIT_WinAppDev_2614_COMP2614Assign06.git
+	/// @Author: Krzysztof Szczurowski
+	/// @Date: June  2017
+	/// </summary>
 	public partial class MainForm : Form
 	{
-		private ClientCollection res;
+		private ClientCollection resource;
 		private ClientViewModel clientVM;
 		public MainForm()
 		{
@@ -35,18 +35,12 @@ namespace COMP2614Assign06.UI
 		}
 		private void bgw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
-			res = (ClientCollection)e.Result;
+			resource = (ClientCollection)e.Result;
 			
 			clientVM = new ClientViewModel(ClientValidation.GetClients());
 			setupBindings();
-			setupGridView(res);
 			refreshStatsPanel();
 			toolStripStatusLabelInfo.Text = "Loaded";
-		}
-
-		private void setupGridView(ClientCollection clients)
-		{
-			//setup your grid in case u disable AutoGenerateColumns !!!
 		}
 
 		private void setupBindings()
@@ -55,38 +49,21 @@ namespace COMP2614Assign06.UI
 			dataGridViewClients.DataSource = clientVM.Clients;
 		}
 
-		private void buttonSave_Click(object sender, EventArgs e)
-		{
-			MessageBox.Show("This is where Database will be updated\nwith new values !!!", "Not Implemented Functionality", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-		}
-
 		private void dataGridViewClients_DoubleClick(object sender, EventArgs e)
 		{
-			int index = dataGridViewClients.CurrentRow.Index;
-			Client client = clientVM.Clients[index];
-			clientVM.SetDisplayClient(client);
-
-			using (ClientEditDialog ced = new ClientEditDialog())
-			{
-				ced.ClientVM = clientVM;
-				if (ced.ShowDialog() == DialogResult.OK)
-				{
-					bgw.RunWorkerAsync();
-					refreshStatsPanel();
-				}
-			}
+			displayClient();
 		}
 
 		private void refreshStatsPanel()
 		{
-			labelYtdSale.Text =  res.TotalYTDSales.ToString();
-			labelCreditHoldCount.Text =  res.CreditHoldCount.ToString();
+			labelYtdSale.Text =  resource.TotalYTDSales.ToString();
+			labelCreditHoldCount.Text =  resource.CreditHoldCount.ToString();
 		}
 
 		private void buttonNew_Click(object sender, EventArgs e)
 		{
 			Button buttonOrigin = (Button)sender;
-			clientVM.SetDisplayClient(new Client(String.Empty, String.Empty, string.Empty, string.Empty, string.Empty, string.Empty, 0.0m, false, String.Empty));
+			clientVM.SetDisplayClient(new Client(String.Empty, String.Empty, string.Empty, string.Empty, "<Select Province>", string.Empty, 0.0m, false, String.Empty));
 			using (ClientEditDialog ced = new ClientEditDialog())
 			{
 				ced.ClientVM = clientVM;
@@ -137,6 +114,28 @@ namespace COMP2614Assign06.UI
 		{
 			ClientValidation.DeleteClient(cl);
 			bgw.RunWorkerAsync();
+		}
+
+		private void buttonEdit_Click(object sender, EventArgs e)
+		{
+			displayClient();
+		}
+
+		private void displayClient()
+		{
+			int index = dataGridViewClients.CurrentRow.Index;
+			Client client = clientVM.Clients[index];
+			clientVM.SetDisplayClient(client);
+
+			using (ClientEditDialog ced = new ClientEditDialog())
+			{
+				ced.ClientVM = clientVM;
+				if (ced.ShowDialog() == DialogResult.OK)
+				{
+					bgw.RunWorkerAsync();
+					refreshStatsPanel();
+				}
+			}
 		}
 	}
 }

@@ -45,6 +45,7 @@
     <Compile Include="Common\Client.cs" />
     <Compile Include="Common\ClientCollection.cs" />
     <Compile Include="Common\Helper.cs" />
+    <Compile Include="Common\Province.cs" />
     <Compile Include="Data\ClientRepository.cs" />
     <Compile Include="Data\ProvinceRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

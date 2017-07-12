@@ -35,7 +35,7 @@
 			this.bgw = new System.ComponentModel.BackgroundWorker();
 			this.buttonNew = new System.Windows.Forms.Button();
 			this.buttonDelete = new System.Windows.Forms.Button();
-			this.buttonSave = new System.Windows.Forms.Button();
+			this.buttonEdit = new System.Windows.Forms.Button();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.labelCreditHoldCount = new System.Windows.Forms.Label();
 			this.labelYtdSale = new System.Windows.Forms.Label();
@@ -58,7 +58,7 @@
 			this.statusStripProgress.Name = "statusStripProgress";
 			this.statusStripProgress.Padding = new System.Windows.Forms.Padding(1, 0, 12, 0);
 			this.statusStripProgress.Size = new System.Drawing.Size(997, 25);
-			this.statusStripProgress.TabIndex = 19;
+			this.statusStripProgress.TabIndex = 5;
 			this.statusStripProgress.Text = "statusStrip1";
 			// 
 			// toolStripStatusLabelInfo
@@ -71,6 +71,8 @@
 			// dataGridViewClients
 			// 
 			this.dataGridViewClients.AllowUserToAddRows = false;
+			this.dataGridViewClients.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.dataGridViewClients.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
 			this.dataGridViewClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridViewClients.Location = new System.Drawing.Point(11, 11);
 			this.dataGridViewClients.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -79,7 +81,7 @@
 			this.dataGridViewClients.RowTemplate.ReadOnly = true;
 			this.dataGridViewClients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dataGridViewClients.Size = new System.Drawing.Size(974, 357);
-			this.dataGridViewClients.TabIndex = 18;
+			this.dataGridViewClients.TabIndex = 6;
 			this.dataGridViewClients.DoubleClick += new System.EventHandler(this.dataGridViewClients_DoubleClick);
 			// 
 			// bgw
@@ -89,33 +91,33 @@
 			// 
 			// buttonNew
 			// 
-			this.buttonNew.Location = new System.Drawing.Point(713, 451);
+			this.buttonNew.Location = new System.Drawing.Point(748, 450);
 			this.buttonNew.Name = "buttonNew";
 			this.buttonNew.Size = new System.Drawing.Size(75, 23);
-			this.buttonNew.TabIndex = 21;
+			this.buttonNew.TabIndex = 2;
 			this.buttonNew.Text = "&New";
 			this.buttonNew.UseVisualStyleBackColor = true;
 			this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
 			// 
 			// buttonDelete
 			// 
-			this.buttonDelete.Location = new System.Drawing.Point(794, 450);
+			this.buttonDelete.Location = new System.Drawing.Point(829, 449);
 			this.buttonDelete.Name = "buttonDelete";
 			this.buttonDelete.Size = new System.Drawing.Size(75, 23);
-			this.buttonDelete.TabIndex = 22;
+			this.buttonDelete.TabIndex = 1;
 			this.buttonDelete.Text = "&Delete";
 			this.buttonDelete.UseVisualStyleBackColor = true;
 			this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
 			// 
-			// buttonSave
+			// buttonEdit
 			// 
-			this.buttonSave.Location = new System.Drawing.Point(875, 451);
-			this.buttonSave.Name = "buttonSave";
-			this.buttonSave.Size = new System.Drawing.Size(75, 23);
-			this.buttonSave.TabIndex = 23;
-			this.buttonSave.Text = "&Save";
-			this.buttonSave.UseVisualStyleBackColor = true;
-			this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+			this.buttonEdit.Location = new System.Drawing.Point(910, 450);
+			this.buttonEdit.Name = "buttonEdit";
+			this.buttonEdit.Size = new System.Drawing.Size(75, 23);
+			this.buttonEdit.TabIndex = 0;
+			this.buttonEdit.Text = "&Edit";
+			this.buttonEdit.UseVisualStyleBackColor = true;
+			this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
 			// 
 			// groupBox1
 			// 
@@ -126,9 +128,9 @@
 			this.groupBox1.Location = new System.Drawing.Point(218, 373);
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.Size = new System.Drawing.Size(270, 100);
-			this.groupBox1.TabIndex = 24;
+			this.groupBox1.TabIndex = 4;
 			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "Grid Stats:";
+			this.groupBox1.Text = "&Grid Stats:";
 			// 
 			// labelCreditHoldCount
 			// 
@@ -146,7 +148,7 @@
 			this.labelYtdSale.Location = new System.Drawing.Point(157, 28);
 			this.labelYtdSale.Name = "labelYtdSale";
 			this.labelYtdSale.Size = new System.Drawing.Size(100, 20);
-			this.labelYtdSale.TabIndex = 2;
+			this.labelYtdSale.TabIndex = 1;
 			this.labelYtdSale.Text = "<YTD Sale>";
 			this.labelYtdSale.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
@@ -156,8 +158,8 @@
 			this.label2.Location = new System.Drawing.Point(7, 68);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(148, 20);
-			this.label2.TabIndex = 1;
-			this.label2.Text = "Credit Hold Count:";
+			this.label2.TabIndex = 2;
+			this.label2.Text = "Credit &Hold Count:";
 			// 
 			// label1
 			// 
@@ -166,7 +168,7 @@
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(85, 20);
 			this.label1.TabIndex = 0;
-			this.label1.Text = "YTD Sale:";
+			this.label1.Text = "YTD &Sale:";
 			// 
 			// groupBox2
 			// 
@@ -174,9 +176,9 @@
 			this.groupBox2.Location = new System.Drawing.Point(12, 373);
 			this.groupBox2.Name = "groupBox2";
 			this.groupBox2.Size = new System.Drawing.Size(200, 100);
-			this.groupBox2.TabIndex = 25;
+			this.groupBox2.TabIndex = 3;
 			this.groupBox2.TabStop = false;
-			this.groupBox2.Text = "Operations:";
+			this.groupBox2.Text = "&Operations:";
 			// 
 			// checkBoxDeleteConfirmation
 			// 
@@ -187,17 +189,18 @@
 			this.checkBoxDeleteConfirmation.Name = "checkBoxDeleteConfirmation";
 			this.checkBoxDeleteConfirmation.Size = new System.Drawing.Size(140, 24);
 			this.checkBoxDeleteConfirmation.TabIndex = 0;
-			this.checkBoxDeleteConfirmation.Text = "Confirm delete";
+			this.checkBoxDeleteConfirmation.Text = "&Confirm delete";
 			this.checkBoxDeleteConfirmation.UseVisualStyleBackColor = true;
 			// 
 			// MainForm
 			// 
+			this.AcceptButton = this.buttonEdit;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(997, 514);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
-			this.Controls.Add(this.buttonSave);
+			this.Controls.Add(this.buttonEdit);
 			this.Controls.Add(this.buttonDelete);
 			this.Controls.Add(this.buttonNew);
 			this.Controls.Add(this.dataGridViewClients);
@@ -231,7 +234,7 @@
 		private System.ComponentModel.BackgroundWorker bgw;
 		private System.Windows.Forms.Button buttonNew;
 		private System.Windows.Forms.Button buttonDelete;
-		private System.Windows.Forms.Button buttonSave;
+		private System.Windows.Forms.Button buttonEdit;
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label1;

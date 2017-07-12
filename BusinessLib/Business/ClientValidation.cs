@@ -1,10 +1,6 @@
 ﻿
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 
 using BusinessLib.Common;
 using BusinessLib.Data;
@@ -12,9 +8,15 @@ using System.Text.RegularExpressions;
 
 namespace BusinessLib.Business
 {
+	/// <summary>
+	/// @Author: Krzysztof Szczurowski
+	/// @Repo: https://github.com/kriss3/BCIT_WinAppDev_2614_COMP2614Assign06.git
+	/// @Date: June 2017
+	/// </summary>
 	public class ClientValidation
 	{
 		private static List<string> errors;
+		private static bool isUpdate = false;
 
 		static ClientValidation()
 		{
@@ -32,7 +34,6 @@ namespace BusinessLib.Business
 				{
 					message += line + "\r\n";
 				}
-
 				return message;
 			}
 		}
@@ -42,6 +43,7 @@ namespace BusinessLib.Business
 
 		public static int AddClient(Client client)
 		{
+			isUpdate = true;
 			if (validate(client))
 			{
 				return ClientRepository.AddClient(client);
@@ -73,7 +75,8 @@ namespace BusinessLib.Business
 		 *	Province cannot by empty
 		 *	YTDSales cannot be negative 
 		 *	Force the ClientCode to upper case and validate for pattern AAAAA.
-		 *	PostCode in format: <A9A 9A9> 
+		 *	PostCode in format: <A9A 9A9>
+		 *	Check for duplicate ClientCode / on Edit / on Insert New record 
 		 */
 		private static bool validate(Client client)
 		{
@@ -85,6 +88,16 @@ namespace BusinessLib.Business
 			{
 				errors.Add("Client Code value must be 5 characters long!");
 				success = false;
+			}
+
+			//check if duplicate record by ClientCode
+			if (isUpdate)
+			{
+				if (ClientRepository.CheckDuplicateRecord(client.ClientCode))
+				{
+					errors.Add($"Record with Id: {client.ClientCode} already exists in the Database!");
+					success = false;
+				}
 			}
 
 			if (String.IsNullOrEmpty(client.CompanyName))

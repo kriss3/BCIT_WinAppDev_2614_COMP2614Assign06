@@ -6,6 +6,11 @@ using BusinessLib.Common;
 
 namespace BusinessLib.Data
 {
+	/// <summary>
+	/// @Author: Krzysztof Szczurowski
+	/// @Repo: https://github.com/kriss3/BCIT_WinAppDev_2614_COMP2614Assign06.git
+	/// @Date: June 2017
+	/// </summary>
 	public class ClientRepository
 	{
 		public static ClientCollection GetClients()
@@ -192,7 +197,6 @@ namespace BusinessLib.Data
 				}
 			}
 		}
-
 		public static int DeleteProduct(Client client)
 		{
 			using (SqlConnection conn = new SqlConnection(Helper.GetConnectionString()))
@@ -214,7 +218,32 @@ namespace BusinessLib.Data
 				}
 			}
 		}
+		public static bool CheckDuplicateRecord(String clientCode)
+		{
+			string query = @"select count(*) from dbo.Client013054 where ClientCode = @clientCode";
 
+			try
+			{
+				using (SqlConnection conn = new SqlConnection(Helper.GetConnectionString()))
+				{
+					using (SqlCommand cmd = new SqlCommand(Helper.GetConnectionString()))
+					{
+						cmd.CommandType = CommandType.Text;
+						cmd.CommandText = query;
+						cmd.Connection = conn;
+
+						cmd.Parameters.AddWithValue("@clientCode", clientCode);
+						conn.Open();
+						return  Convert.ToInt32(cmd.ExecuteScalar()) <= 0 ? false : true;
+					}
+				}
+			}
+			catch (Exception)
+			{
+				
+				throw;
+			}
+		}
 	}
 }
 

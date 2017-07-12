@@ -3,21 +3,23 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessLib.Data
 {
+	/// <summary>
+	/// @Author: Krzysztof Szczurowski
+	/// @Repo: https://github.com/kriss3/BCIT_WinAppDev_2614_COMP2614Assign06.git
+	/// @Date: June 2017
+	/// </summary>
 	public class ProvinceRepository
 	{
-		public static List<String> GetProvinces()
+		public static IList<Province> GetProvinces()
 		{
-			List<String> provinces = null;
+			List<Province> provinces = null;
 
 			using (SqlConnection conn = new SqlConnection(Helper.GetConnectionString()))
 			{
-				string provincesQuery = @"select abbreviation, name from dbo.Province";
+				string provincesQuery = @"select ProvinceId, Abbreviation, Name from dbo.Province";
 				using (SqlCommand cmd = new SqlCommand())
 				{
 					cmd.CommandType = CommandType.Text;
@@ -25,19 +27,21 @@ namespace BusinessLib.Data
 					cmd.Connection = conn;
 
 					conn.Open();
-					provinces = new List<String>();
-					provinces.Add("<Select PostCode>");
-
+					provinces = new List<Province> { new Province { Abbreviation = "Select", ProvinceDisplay = "<Select Province>" } };
+					
 					using (SqlDataReader dr = cmd.ExecuteReader())
 					{
-						string abb, provinceName = String.Empty;
+						string abb, provinceName, provinceDisplay = String.Empty;
+						int id;
 
 						while (dr.Read())
 						{
+							id = Convert.ToInt32(dr["ProvinceId"]);
 							abb = dr["Abbreviation"] as string;
 							provinceName = dr["Name"] as string;
+							provinceDisplay = $"{abb} - {provinceName}";
 
-							provinces.Add($"{abb}");
+							provinces.Add(new Province { Id = id, Abbreviation = abb, Name = provinceName, ProvinceDisplay = provinceDisplay });
 						}
 					}
 
