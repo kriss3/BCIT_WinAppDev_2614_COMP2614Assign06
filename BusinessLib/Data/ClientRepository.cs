@@ -7,6 +7,7 @@ using BusinessLib.Common;
 namespace BusinessLib.Data
 {
 	/// <summary>
+	/// Database operations
 	/// @Author: Krzysztof Szczurowski
 	/// @Repo: https://github.com/kriss3/BCIT_WinAppDev_2614_COMP2614Assign06.git
 	/// @Date: June 2017
@@ -59,7 +60,6 @@ namespace BusinessLib.Data
 			}
 			return clients;
 		}
-
 		public static int AddClient(Client client)
 		{
 			using (SqlConnection conn = new SqlConnection(Helper.GetConnectionString()))
@@ -131,7 +131,6 @@ namespace BusinessLib.Data
 				}
 			}
 		}
-
 		public static int UpdateClient(Client client)
 		{
 			using (SqlConnection conn = new SqlConnection(Helper.GetConnectionString()))
@@ -197,12 +196,12 @@ namespace BusinessLib.Data
 				}
 			}
 		}
-		public static int DeleteProduct(Client client)
+		public static int DeleteClient(Client client)
 		{
 			using (SqlConnection conn = new SqlConnection(Helper.GetConnectionString()))
 			{
 				string query = @"DELETE dbo.Client013054
-								 WHERE ClientCode = @clientCode";
+								WHERE ClientCode = @clientCode";
 
 				using (SqlCommand cmd = new SqlCommand())
 				{
@@ -217,8 +216,9 @@ namespace BusinessLib.Data
 					return rowsAffected;
 				}
 			}
+			
 		}
-		public static bool CheckDuplicateRecord(String clientCode)
+		public static bool IsDuplicateRecord(String clientCode)
 		{
 			string query = @"select count(*) from dbo.Client013054 where ClientCode = @clientCode";
 

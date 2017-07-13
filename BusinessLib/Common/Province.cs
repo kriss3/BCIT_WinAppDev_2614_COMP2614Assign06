@@ -2,7 +2,9 @@
 {
 	/// <summary>
 	/// Data class represenging Province objects;
-	/// @Repo location: https://github.com/kriss3/BCIT_WinAppDev_2614_COMP2614Assign06.git
+	/// @see Repo location: https://github.com/kriss3/BCIT_WinAppDev_2614_COMP2614Assign06.git
+	/// @Date: July 2017;
+	/// @Author: Krzysztof Szczurowski;
 	/// </summary>
 	public class Province
 	{

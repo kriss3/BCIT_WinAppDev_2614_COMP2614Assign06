@@ -5,6 +5,11 @@ using BusinessLib.Common;
 
 namespace COMP2614Assign06.UI
 {
+	/// <summary>
+	/// @Author: Krzysztof Szczurowski
+	/// @Repo: https://github.com/kriss3/BCIT_WinAppDev_2614_COMP2614Assign06.git
+	/// @Date: June 2017
+	/// </summary>
 	public class ClientViewModel : INotifyPropertyChanged
 	{
 		private string clientCode;

@@ -3,6 +3,7 @@ using System.Windows.Forms;
 
 using BusinessLib.Business;
 using BusinessLib.Common;
+using System.Data.SqlClient;
 
 namespace COMP2614Assign06.UI
 {
@@ -20,17 +21,31 @@ namespace COMP2614Assign06.UI
 		{
 			InitializeComponent();
 		}
-
+		//Getting data for Province Display, Province does not have its on Validation class;
 		private void ClientEditDialog_Load(object sender, EventArgs e)
 		{
-			setupBindings();
-			if(callingButton != null && callingButton.Contains("New"))
-				textBoxClientCode.ReadOnly = false;
+			try
+			{
+				setupBindings();
+				if (callingButton != null && callingButton.Contains("New"))
+				{
+					textBoxClientCode.ReadOnly = false;
+				}	
+			}
+			catch (SqlException sqlEx)
+			{
+				MessageBox.Show($"DB Error: {sqlEx.Message}\nContact Admin!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				this.Close();
+				this.Dispose();
+			}		
 		}
-
+		/// <summary>
+		/// Setting up Modal Form bindings and Province comboBox;
+		/// </summary>
 		private void setupBindings()
 		{
 			comboBoxProvinces.DataSource = Helper.GetProvinces();
+
 			comboBoxProvinces.ValueMember = "Key";
 			comboBoxProvinces.DisplayMember = "Value";
 

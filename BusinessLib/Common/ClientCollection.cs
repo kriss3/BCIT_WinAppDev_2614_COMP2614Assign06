@@ -12,7 +12,7 @@ namespace BusinessLib.Common
 	public class ClientCollection : BindingList<Client>
 	{
 		/// <summary>
-		/// 
+		/// Sums up all Year to date Sales but only when Creadit Hold is set;
 		/// </summary>
 		public decimal TotalYTDSales
 		{
@@ -21,9 +21,8 @@ namespace BusinessLib.Common
 				return this.Where(x => x.CreditHold == true).Select(x=>x.YTDSale).Sum();
 			} 
 		}
-
 		/// <summary>
-		/// 
+		/// Sums up all Creadit Holds;
 		/// </summary>
 		public decimal CreditHoldCount
 		{
